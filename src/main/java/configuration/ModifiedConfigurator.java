@@ -14,7 +14,7 @@ public class ModifiedConfigurator implements Configurator {
 
     public String configurePayload(Message message, String handlerToUse) {
         Handler handler = new Handler();
-        String currentMessage = null;
+        String currentMessage = message.getPayload();
 
         switch (handlerToUse) {
             case "trim":

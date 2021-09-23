@@ -46,11 +46,11 @@ public class DefaultConfigurator implements Configurator {
                 break;
             }
             default:
-                throw new IllegalStateException("Unexpected value of model in message: " + identifyModel(message));
+                throw new IllegalArgumentException("Unexpected value of model in message: " + identifyModel(message));
         }
     }
 
-    protected SensorModel identifyModel(Message message) {
+    public SensorModel identifyModel(Message message) {
         String model = message.getModel().trim().toUpperCase().replace("-", "_");
         return SensorModel.valueOf(model);
     }
